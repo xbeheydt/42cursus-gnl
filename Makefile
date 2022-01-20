@@ -12,13 +12,15 @@ LFLAGS			= -Ldeps/${LIBTEST}/lib -Ldeps/libft
 RM				= rm -rf
 NORM			= ${HOME}/.local/bin/norminette
 
-all:
-	$(NORM) ${HEADERS} ${SRCS}
+all: lint
 	$(MAKE) -C deps/${LIBTEST} all
 	$(CC) ${CFLAGS} -DBUFFER_SIZE=1024 -DDATA_PATH="${DATA_PATH}" ${IFLAGS} ${LFLAGS} ${SRCS} ${TESTSRC} -o a.out -l${LIBTEST} -lft
 
 gnl.out:
 	$(CC) ${CFLAGS} -Isrc/ ${SRCS} -o gnl.out
+
+lint:
+	$(NORM) ${HEADERS} ${SRCS}
 
 clean:
 	$(MAKE) -C deps/${LIBTEST} clean
