@@ -18,19 +18,34 @@
     <ClCompile Include="src\get_next_line_utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\test_main.c">
+    <ClCompile Include="tests\test_mandatories.c">
       <Filter>Tests Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\test_ft_realloc.c">
-      <Filter>Tests Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\test_get_clear_buffer.c">
-      <Filter>Tests Files</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\test_ft_mem_utils.c">
+    <ClCompile Include="tests\test_line_realloc.c">
       <Filter>Tests Files</Filter>
     </ClCompile>
     <ClCompile Include="tests\test_get_line.c">
+      <Filter>Tests Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_get_next_line.c">
+      <Filter>Tests Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_buffer_handlers.c">
+      <Filter>Tests Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\get_next_line_bonus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\get_next_line_utils_bonus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_bonus.c">
+      <Filter>Tests Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_bonus_lstbuf_handlers.c">
+      <Filter>Tests Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\test_bonus_utils.c">
       <Filter>Tests Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,6 +56,9 @@
     <ClInclude Include="tests\test.h">
       <Filter>Tests Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\get_next_line_bonus.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -48,6 +66,18 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="tests\data\test1.txt">
+      <Filter>Ressource Files</Filter>
+    </Text>
+    <Text Include="tests\data\test2.txt">
+      <Filter>Ressource Files</Filter>
+    </Text>
+    <Text Include="tests\data\one-nl.txt">
+      <Filter>Ressource Files</Filter>
+    </Text>
+    <Text Include="tests\data\empty.txt">
+      <Filter>Ressource Files</Filter>
+    </Text>
+    <Text Include="tests\data\test2_alt.txt">
       <Filter>Ressource Files</Filter>
     </Text>
   </ItemGroup>

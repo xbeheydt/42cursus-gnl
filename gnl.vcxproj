@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug Bonus|x64">
+      <Configuration>Debug Bonus</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Mandatories|x64">
+      <Configuration>Debug Mandatories</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
@@ -24,12 +32,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
     <ConfigurationType>Makefile</ConfigurationType>
-    <RemoteRootDir>~/sources</RemoteRootDir>
+    <RemoteRootDir>/tmp</RemoteRootDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+    <RemoteRootDir>/tmp</RemoteRootDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Mandatories|x64'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <ConfigurationType>Makefile</ConfigurationType>
+    <RemoteRootDir>/tmp</RemoteRootDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <UseDebugLibraries>false</UseDebugLibraries>
     <ConfigurationType>Makefile</ConfigurationType>
-    <RemoteRootDir>~/sources</RemoteRootDir>
+    <RemoteRootDir>/tmp</RemoteRootDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings" />
@@ -39,14 +57,38 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)build\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)build\obj\$(Platform)\$(Configuration)\</IntDir>
-    <NMakePreprocessorDefinitions>BUFFER_SIZE=1024;DATA_PATH="$HOME/sources/gnl/tests/data"</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>BUFFER_SIZE=1</NMakePreprocessorDefinitions>
     <AdditionalSourcesToCopyMapping>
     </AdditionalSourcesToCopyMapping>
     <RemoteBuildCommandLine>$(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) all</RemoteBuildCommandLine>
-    <NMakeIncludeSearchPath>deps/cunits42/include;src;tests;deps/libft</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>deps/cunits42/include;deps/libft;src</NMakeIncludeSearchPath>
     <ProjectPublicIncludePath>
     </ProjectPublicIncludePath>
     <RemoteReBuildCommandLine>$(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) re</RemoteReBuildCommandLine>
+    <RemoteCleanCommandLine>rm -rf $(RemoteDeployDir) </RemoteCleanCommandLine>
+    <RemoteCCompileToolExe>gcc</RemoteCCompileToolExe>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'">
+    <OutDir>$(ProjectDir)build\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\obj\$(Platform)\$(Configuration)\</IntDir>
+    <NMakePreprocessorDefinitions>BUFFER_SIZE=1</NMakePreprocessorDefinitions>
+    <AdditionalSourcesToCopyMapping />
+    <RemoteBuildCommandLine>$(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) bonus</RemoteBuildCommandLine>
+    <NMakeIncludeSearchPath>deps/cunits42/include;deps/libft;src</NMakeIncludeSearchPath>
+    <ProjectPublicIncludePath />
+    <RemoteReBuildCommandLine>make -C $(RemoteDeployDir) fclean; $(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) bonus</RemoteReBuildCommandLine>
+    <RemoteCleanCommandLine>rm -rf $(RemoteDeployDir) </RemoteCleanCommandLine>
+    <RemoteCCompileToolExe>gcc</RemoteCCompileToolExe>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Mandatories|x64'">
+    <OutDir>$(ProjectDir)build\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\obj\$(Platform)\$(Configuration)\</IntDir>
+    <NMakePreprocessorDefinitions>BUFFER_SIZE=1</NMakePreprocessorDefinitions>
+    <AdditionalSourcesToCopyMapping />
+    <RemoteBuildCommandLine>$(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) mandatory</RemoteBuildCommandLine>
+    <NMakeIncludeSearchPath>deps/cunits42/include;deps/libft;src</NMakeIncludeSearchPath>
+    <ProjectPublicIncludePath />
+    <RemoteReBuildCommandLine>make -C $(RemoteDeployDir) fclean; $(NMakePreprocessorDefinitions) make -C $(RemoteDeployDir) mandatory</RemoteReBuildCommandLine>
     <RemoteCleanCommandLine>rm -rf $(RemoteDeployDir) </RemoteCleanCommandLine>
     <RemoteCCompileToolExe>gcc</RemoteCCompileToolExe>
   </PropertyGroup>
@@ -57,34 +99,61 @@
     <AdditionalSourcesToCopyMapping>
     </AdditionalSourcesToCopyMapping>
     <RemoteBuildCommandLine>ls ~/sources/gnl</RemoteBuildCommandLine>
-    <NMakeIncludeSearchPath>deps/cunits42/include;src;tests;deps/libft</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>deps/cunits42/include;deps/libft;src</NMakeIncludeSearchPath>
     <ProjectPublicIncludePath>
     </ProjectPublicIncludePath>
     <RemoteCCompileToolExe>gcc</RemoteCCompileToolExe>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="src\get_next_line.c" />
+    <ClCompile Include="src\get_next_line_bonus.c" />
     <ClCompile Include="src\get_next_line_utils.c" />
-    <ClCompile Include="tests\test_ft_realloc.c" />
-    <ClCompile Include="tests\test_get_clear_buffer.c" />
+    <ClCompile Include="src\get_next_line_utils_bonus.c" />
+    <ClCompile Include="tests\test_bonus.c" />
+    <ClCompile Include="tests\test_bonus_lstbuf_handlers.c" />
+    <ClCompile Include="tests\test_bonus_utils.c" />
+    <ClCompile Include="tests\test_buffer_handlers.c" />
+    <ClCompile Include="tests\test_line_realloc.c" />
     <ClCompile Include="tests\test_get_line.c" />
-    <ClCompile Include="tests\test_main.c" />
-    <ClCompile Include="tests\test_ft_mem_utils.c" />
+    <ClCompile Include="tests\test_get_next_line.c" />
+    <ClCompile Include="tests\test_mandatories.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\get_next_line.h" />
+    <ClInclude Include="src\get_next_line_bonus.h" />
     <ClInclude Include="tests\test.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug Mandatories|x64'">true</ExcludedFromBuild>
+      <RemoteCopyFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</RemoteCopyFile>
+      <RemoteCopyFile Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'">false</RemoteCopyFile>
+      <RemoteCopyFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</RemoteCopyFile>
     </None>
     <None Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="tests\data\empty.txt" />
+    <Text Include="tests\data\one-nl.txt" />
     <Text Include="tests\data\test1.txt" />
+    <Text Include="tests\data\test2.txt" />
+    <Text Include="tests\data\test2_alt.txt" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'">
+    <PreBuildEvent>
+      <AdditionalSourcesToCopyMapping>
+      </AdditionalSourcesToCopyMapping>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Mandatories|x64'">
     <PreBuildEvent>
       <AdditionalSourcesToCopyMapping>
       </AdditionalSourcesToCopyMapping>

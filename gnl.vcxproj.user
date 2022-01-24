@@ -6,9 +6,21 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <RemoteDebuggingMode>gdbserver</RemoteDebuggingMode>
     <DebuggerFlavor>LinuxDebugger</DebuggerFlavor>
-    <RemoteDebuggerCommand>~/sources/$(MSBuildProjectName)/a.out</RemoteDebuggerCommand>
+    <RemoteDebuggerCommand>/tmp/$(MSBuildProjectName)/a.out</RemoteDebuggerCommand>
     <RemoteGDBPath>
     </RemoteGDBPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Bonus|x64'">
+    <RemoteDebuggingMode>gdbserver</RemoteDebuggingMode>
+    <DebuggerFlavor>LinuxDebugger</DebuggerFlavor>
+    <RemoteDebuggerCommand>/tmp/$(MSBuildProjectName)/bonus.out</RemoteDebuggerCommand>
+    <RemoteGDBPath />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Mandatories|x64'">
+    <RemoteDebuggingMode>gdbserver</RemoteDebuggingMode>
+    <DebuggerFlavor>LinuxDebugger</DebuggerFlavor>
+    <RemoteDebuggerCommand>/tmp/$(MSBuildProjectName)/mandatory.out</RemoteDebuggerCommand>
+    <RemoteGDBPath />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <RemoteDebuggingMode>gdbserver</RemoteDebuggingMode>
