@@ -1,9 +1,9 @@
 [submodule "src"]
 	path = src
-	url = git@github.com:xbeheydt/42cursus-gnl.git
+	url = git@github.com:xbeheydt/42cursus-gnl-src.git
 [submodule "deps/cunits42"]
 	path = deps/cunits42
 	url = git@github.com:xbeheydt/cunits42.git
 [submodule "deps/libft"]
 	path = deps/libft
-	url = git@github.com:xbeheydt/42cursus-libft.git
+	url = git@github.com:xbeheydt/42cursus-libft-src.git
