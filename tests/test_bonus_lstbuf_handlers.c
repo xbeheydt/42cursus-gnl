@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_bonus_lstbuf_handlers.c                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xbeheydt <xbeheydt@42lausanne.ch>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/24 15:33:27 by xbeheydt          #+#    #+#             */
+/*   Updated: 2022/01/24 15:33:30 by xbeheydt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test.h"
 
 #include <cunits42.h>
@@ -12,7 +24,7 @@ cunits42_t	test_new_lstbuf(void)
 	lstbuf = new_lstbuf(42);
 	if (lstbuf == NULL)
 		return (CUNITS42_KO);
-	
+
 	UNIT_TEST(lstbuf->fd, == , 42);
 	UNIT_TEST(lstbuf->fpos, == , 0);
 	UNIT_TEST(lstbuf->flen, == , 0);

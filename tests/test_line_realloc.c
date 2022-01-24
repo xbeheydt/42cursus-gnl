@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_line_realloc.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: xbeheydt <xbeheydt@42lausanne.ch>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/24 15:33:55 by xbeheydt          #+#    #+#             */
+/*   Updated: 2022/01/24 15:33:58 by xbeheydt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "test.h"
 
 #include <cunits42.h>
@@ -21,7 +33,7 @@ cunits42_t	test_line_realloc(void)
     memcpy(buf->line + 5, " World", 6);
 	buf->llen = 11;
     UNIT_TEST(memcmp(buf->line, "Hello World", buf->llen), == , 0);
-    
+
     line_realloc(&buf, 22);
     memcpy(buf->line + 11, "IpsumLorem", 10);
 	buf->llen = 21;
